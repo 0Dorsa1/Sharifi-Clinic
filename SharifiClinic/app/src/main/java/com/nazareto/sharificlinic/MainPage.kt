@@ -7,6 +7,7 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -180,13 +182,6 @@ fun MainPage() {
 
                         Box(
                             modifier = Modifier
-                                .clickable(onClick = {
-                                    if (selectedMenuItem.value.isNotEmpty()) {
-                                        selectedMenuItem.value = ""
-                                    } else {
-                                        selectedMenuItem.value = dropdownItems.firstOrNull() ?: ""
-                                    }
-                                })
                                 .padding(vertical = 30.dp, horizontal = 40.dp)
                                 .background(
                                     color = Color.LightGray,
@@ -216,15 +211,8 @@ fun MainPage() {
                             }
                         }
 
-                        Box(
+                        Column(
                             modifier = Modifier
-                                .clickable(onClick = {
-                                    if (selectedMenuItem.value.isNotEmpty()) {
-                                        selectedMenuItem.value = ""
-                                    } else {
-                                        selectedMenuItem.value = dropdownItems.firstOrNull() ?: ""
-                                    }
-                                })
                                 .padding(vertical = 30.dp, horizontal = 40.dp)
                                 .background(
                                     color = Color.LightGray,
@@ -242,7 +230,6 @@ fun MainPage() {
                                     fontSize = 20.sp,
                                     modifier = Modifier.padding(start = 15.dp),
                                     color = Color.White
-
                                 )
                                 Spacer(modifier = Modifier.weight(1f))
                                 Icon(
@@ -253,9 +240,34 @@ fun MainPage() {
                                         .padding(horizontal = 8.dp) // Add padding between elements
                                 )
                             }
+
+                            if (selectedMenuItem.value.isNotEmpty()) {
+                                DropdownMenu(
+                                    expanded = true,
+                                    onDismissRequest = { selectedMenuItem.value = "" },
+                                    modifier = Modifier.fillMaxWidth()
+                                ) {
+                                    dropdownItems.forEach { item ->
+                                        DropdownMenuItem(onClick = { selectedMenuItem.value = item }) {
+                                            Text(
+                                                text = item,
+                                                fontSize = 20.sp,
+                                                modifier = Modifier.padding(16.dp)
+                                            )
+                                        }
+                                    }
+                                }
+                            }
                         }
 
-                        Spacer(modifier = Modifier.padding(top=500.dp))
+                        Button(modifier = Modifier.padding(start = 60.dp, top = 40.dp), onClick = { /*TODO*/ }) {
+                            Text(text = "ثبت درخواست")
+                        }
+
+
+                        Spacer(modifier = Modifier.padding(top = 500.dp))
+
+
 
                         Paper()
                         Paper()
@@ -300,22 +312,6 @@ fun MainPage() {
                         }
 
                         Spacer(modifier = Modifier.padding(100.dp))
-
-                        DropdownMenu(
-                            expanded = selectedMenuItem.value.isNotEmpty(),
-                            onDismissRequest = { selectedMenuItem.value = "" },
-                            modifier = Modifier.padding(top = 60.dp, start = 20.dp)
-                        ) {
-                            dropdownItems.forEach { item ->
-                                DropdownMenuItem(
-                                    onClick = {
-                                        selectedMenuItem.value = item
-                                    }
-                                ) {
-                                    Text(text = item)
-                                }
-                            }
-                        }
                     }
                 }
             }
