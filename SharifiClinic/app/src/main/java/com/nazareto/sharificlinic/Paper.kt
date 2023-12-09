@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -38,10 +39,11 @@ fun Paper() {
         Text(
             modifier = Modifier.padding(top = 20.dp),
             color = Color.White,
+            textAlign = TextAlign.Center,
             text = " شریفی کلینیک شریفی کلینیک شریفی کلینیک شریفی کلینیک شریفی کلینیک شریفی کلینیک شریفی کلینیک شریفی کلینیک شریفی کلینیک شریفی کلینیک"
         )
 
-        Button(modifier = Modifier.padding(top = 20.dp), onClick = { /*TODO*/ }) {
+        Button(modifier = Modifier.padding(top = 20.dp, start = 150.dp), onClick = { /*TODO*/ }) {
             Text(text = "مشاهده مقاله")
         }
     }

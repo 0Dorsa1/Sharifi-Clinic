@@ -78,10 +78,10 @@ private val DarkColorPalette = darkColors(
 @Composable
 fun MainPage() {
     val selectedMenuItem = remember { mutableStateOf("") }
-    val dropdownItems = listOf("Item 1", "Item 2", "Item 3")
+    val dropdownItems = listOf("مشاوره جراحی", "مشاوره تزریق", "ماساژ صورت")
     MaterialTheme(colors = LightColorPalette) {
         CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
-            BackgroundImage(imageResId = R.drawable.background_img) {
+            BackgroundImage(imageResId = R.drawable.blue_background) {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -153,7 +153,7 @@ fun MainPage() {
                                 })
                                 .padding(vertical = 50.dp, horizontal = 40.dp)
                                 .background(
-                                    color = Color.LightGray,
+                                    color = Color.White,
                                     shape = RoundedCornerShape(15.dp)
                                 )
                                 .fillMaxWidth()
@@ -166,7 +166,7 @@ fun MainPage() {
                                     text = "انتخاب موضوع",
                                     fontSize = 20.sp,
                                     modifier = Modifier.padding(start = 15.dp),
-                                    color = Color.White
+                                    color = Color.Black
 
                                 )
                                 Spacer(modifier = Modifier.weight(1f))
@@ -184,7 +184,7 @@ fun MainPage() {
                             modifier = Modifier
                                 .padding(vertical = 30.dp, horizontal = 40.dp)
                                 .background(
-                                    color = Color.LightGray,
+                                    color = Color.White,
                                     shape = RoundedCornerShape(15.dp)
                                 )
                                 .fillMaxWidth()
@@ -197,7 +197,7 @@ fun MainPage() {
                                     text = "شماره تلفن",
                                     fontSize = 20.sp,
                                     modifier = Modifier.padding(start = 15.dp),
-                                    color = Color.White
+                                    color = Color.Black
 
                                 )
                                 Spacer(modifier = Modifier.weight(1f))
@@ -215,7 +215,7 @@ fun MainPage() {
                             modifier = Modifier
                                 .padding(vertical = 30.dp, horizontal = 40.dp)
                                 .background(
-                                    color = Color.LightGray,
+                                    color = Color.White,
                                     shape = RoundedCornerShape(15.dp)
                                 )
                                 .fillMaxWidth()
@@ -229,7 +229,7 @@ fun MainPage() {
                                     text = "متن درخواست مشاوره",
                                     fontSize = 20.sp,
                                     modifier = Modifier.padding(start = 15.dp),
-                                    color = Color.White
+                                    color = Color.Black
                                 )
                                 Spacer(modifier = Modifier.weight(1f))
                                 Icon(
@@ -260,7 +260,7 @@ fun MainPage() {
                             }
                         }
 
-                        Button(modifier = Modifier.padding(start = 60.dp, top = 40.dp), onClick = { /*TODO*/ }) {
+                        Button(modifier = Modifier.padding(start = 140.dp, top = 40.dp), onClick = { /*TODO*/ }) {
                             Text(text = "ثبت درخواست")
                         }
 
