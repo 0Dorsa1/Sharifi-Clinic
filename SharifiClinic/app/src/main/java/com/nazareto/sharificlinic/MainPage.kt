@@ -7,7 +7,6 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,7 +14,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -96,7 +94,7 @@ fun MainPage() {
                         )
 
                         Text(
-                            text = "کلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفی",
+                            text = "ما خدمات متنوعی را برای رفع تمام نیازهای شما در زمینه زیبایی ارائه می دهیم. ما تجربه ای بی نظیر و راحت را در محیطی تمیز و امن برای شما فراهم می کنیم. تیم مجرب و متخصص ما برای دستیابی به بهترین نتایج و برآورده کردن انتظارات شما سخت تلاش می کند.",
                             fontSize = 20.sp,
                             modifier = Modifier.padding(top = 50.dp, start = 20.dp),
                             color = Color.White
@@ -127,7 +125,7 @@ fun MainPage() {
                         )
 
                         Text(
-                            text = "کلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفیکلینیک شریفی",
+                            text = "بلفاروپلاستی توسط جراح پلاستیک واجد شرایط انجام می شود. این روش شامل برداشتن پوست اضافی، سفت کردن ماهیچه های افتاده و تغییر شکل پلک به روشی است که با ساختار صورت و نیازهای بیمار مطابقت دارد. برای دستیابی به نتایج دلخواه از تکنیک های مختلف جراحی مانند بریدن و بستن یا برداشتن پوست اضافی استفاده می شود",
                             fontSize = 20.sp,
                             modifier = Modifier.padding(top = 50.dp, start = 20.dp),
                             color = Color.White
@@ -248,7 +246,9 @@ fun MainPage() {
                                     modifier = Modifier.fillMaxWidth()
                                 ) {
                                     dropdownItems.forEach { item ->
-                                        DropdownMenuItem(onClick = { selectedMenuItem.value = item }) {
+                                        DropdownMenuItem(onClick = {
+                                            selectedMenuItem.value = item
+                                        }) {
                                             Text(
                                                 text = item,
                                                 fontSize = 20.sp,
@@ -260,7 +260,9 @@ fun MainPage() {
                             }
                         }
 
-                        Button(modifier = Modifier.padding(start = 140.dp, top = 40.dp), onClick = { /*TODO*/ }) {
+                        Button(
+                            modifier = Modifier.padding(start = 140.dp, top = 40.dp),
+                            onClick = { /*TODO*/ }) {
                             Text(text = "ثبت درخواست")
                         }
 
@@ -307,7 +309,9 @@ fun MainPage() {
 
                         )
 
-                        Button(modifier = Modifier.padding(start=20.dp,top =40.dp), onClick = { /*TODO*/ }) {
+                        Button(
+                            modifier = Modifier.padding(start = 20.dp, top = 40.dp),
+                            onClick = { /*TODO*/ }) {
                             Text(text = "مشاوره رایگان")
                         }
 
