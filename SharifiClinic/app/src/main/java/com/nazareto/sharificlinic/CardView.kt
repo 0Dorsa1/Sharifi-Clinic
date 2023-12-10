@@ -1,5 +1,9 @@
 package com.nazareto.sharificlinic
 
+import android.content.Intent
+import android.net.Uri
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -55,8 +59,15 @@ fun CardView() {
                 )
 
                 Row(modifier = Modifier.padding(top = 16.dp)) {
+                    val openUrlLauncher = rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                        // Handle the result if needed
+                    }
+
                     Button(
-                        onClick = { /* Handle first button click */ },
+                        onClick = {
+                            // Open the URL in a web browser
+                            openUrlLauncher.launch(Intent(Intent.ACTION_VIEW, Uri.parse("https://sharificlinic.com/sharifAdmin/landing/list/")))
+                        },
                         modifier = Modifier.weight(1f)
                     ) {
                         Text(text = "رزرو نوبت")
